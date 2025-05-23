@@ -130,6 +130,10 @@ Przy uruchamianiu kontenera należy pamiętać o ustawionym tagu:
 docker run -d -p 3000:3000 --name weather-container weather-app:amd64
 ```
 
+## Wykorzystanie danych cache
+
+![Dane cache](./zdjecia/cache_data.png)
+
 ## Weryfikacja architektur w manifeście
 
 ```bash

@@ -83,21 +83,6 @@ HEALTHCHECK --interval=15s --timeout=5s --start-period=5s \
 ENTRYPOINT ["/weather"]
 ```
 
-## Utworzenie własnego buildera
-
-```bash
-docker buildx create --name testbuilder --use --driver docker-container
-```
-Utworzony builder od razu zostanie wybrany jako domyślny. W dockeer desktop można zażądzać aktywnymi builderami 
-
-## Weryfikacja architektur w manifeście
-
-```bash
-docker image inspect <lokalny_obraz>
-docker manifest inspect <publiczny_obraz>
-```
-![docker manifest inspect](./zdjecia/docker_manifest_inspect.png)
-![docker manifest inspect 2](./zdjecia/docker_manifest_inspect_2.png)
 
 ## Wypchnięcie obrazu
 
@@ -113,3 +98,19 @@ docker buildx build \
   --push \
   .
 ```
+
+## Utworzenie własnego buildera
+
+```bash
+docker buildx create --name testbuilder --use --driver docker-container
+```
+Utworzony builder od razu zostanie wybrany jako domyślny. W dockeer desktop można zażądzać aktywnymi builderami 
+
+## Weryfikacja architektur w manifeście
+
+```bash
+docker image inspect <lokalny_obraz>
+docker manifest inspect <publiczny_obraz>
+```
+![docker manifest inspect](./zdjecia/docker_manifest_inspect.png)
+![docker manifest inspect 2](./zdjecia/docker_manifest_inspect_2.png)

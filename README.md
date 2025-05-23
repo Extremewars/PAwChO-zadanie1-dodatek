@@ -26,7 +26,7 @@ trivy image <obraz>
 
 ![Polecenie docker trivy](./zdjecia/docker_trivy.png)
 
-## Pliki źródłowe znajdują się na publiczne repozytorium
+## Pliki źródłowe znajdują się w publicznym repozytorium
 
 ![Publiczne repozytorium](./zdjecia/public_repo.png)
 
@@ -44,7 +44,7 @@ RUN apk add --no-cache git openssh
 WORKDIR /app
 # Dodanie klucza hosta github.com do known_hosts
 RUN mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
-# Pobieranie plików przez prywatne repozytorium
+# Pobieranie plików przez publiczne repozytorium
 RUN --mount=type=ssh git clone git@github.com:Extremewars/PAwChO-zadanie1_dod_source.git .
 # Skopiowanie spisu zależności, jeśli się nie zmieniły część warstw zostanie pobrana z cache'a
 RUN cp src/package*.json ./ && npm install

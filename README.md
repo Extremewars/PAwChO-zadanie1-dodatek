@@ -26,9 +26,9 @@ trivy image <obraz>
 
 ![Polecenie docker trivy](./zdjecia/docker_trivy.png)
 
-## Pliki źródłowe znajdują się na prywatnym repozytorium
+## Pliki źródłowe znajdują się na publiczne repozytorium
 
-![Prywatne repozytorium](./zdjecia/private_repo.png)
+![Publiczne repozytorium](./zdjecia/private_repo.png)
 
 ## Dockerfile
 

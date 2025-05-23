@@ -3,13 +3,13 @@
 FROM --platform=$BUILDPLATFORM node:22-alpine AS build
 # Obsługa argumentu architektury
 ARG TARGETARCH
-# Dodaj git i ssh do kontenera
+# Dodanie git i ssh
 RUN apk add --no-cache git openssh
 #  Katalog roboczy
 WORKDIR /app
-# Dodaj klucz hosta github.com do known_hosts, by uniknąć błędu "Host key verification failed"
+# Dodanie klucza hosta github.com do known_hosts
 RUN mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
-# Pobierz prywatne repozytorium przy użyciu ssh mount
+# Pobieranie plików przez prywatne repozytorium
 RUN --mount=type=ssh git clone git@github.com:Extremewars/PAwChO-zadanie1_dod_source.git .
 # Skopiowanie spisu zależności, jeśli się nie zmieniły część warstw zostanie pobrana z cache'a
 RUN cp src/package*.json ./ && npm install

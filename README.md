@@ -83,6 +83,12 @@ HEALTHCHECK --interval=15s --timeout=5s --start-period=5s \
 ENTRYPOINT ["/weather"]
 ```
 
+## Utworzenie własnego buildera
+
+```bash
+docker buildx create --name testbuilder --use --driver docker-container
+```
+Utworzony builder od razu zostanie wybrany jako domyślny. W dockeer desktop można zażądzać aktywnymi builderami 
 
 ## Wypchnięcie obrazu
 
@@ -99,12 +105,30 @@ docker buildx build \
   .
 ```
 
-## Utworzenie własnego buildera
+## Zbudowanie obrazu lokalnie
 
+Dla architektury amd64:
 ```bash
-docker buildx create --name testbuilder --use --driver docker-container
+docker buildx build \
+  --platform linux/amd64 \
+  --ssh default \
+  --tag weather-app:amd64 \
+  --output type=docker \
+  .
 ```
-Utworzony builder od razu zostanie wybrany jako domyślny. W dockeer desktop można zażądzać aktywnymi builderami 
+Dla architektury arm64:
+```bash
+docker buildx build \
+  --platform linux/arm64 \
+  --ssh default \
+  --tag weather-app:arm64 \
+  --output type=docker \
+  .
+```
+Przy uruchamianiu kontenera należy pamiętać o ustawionym tagu:
+```bash
+docker run -d -p 3000:3000 --name weather-container weather-app:amd64
+```
 
 ## Weryfikacja architektur w manifeście
 

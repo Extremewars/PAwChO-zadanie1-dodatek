@@ -28,7 +28,7 @@ trivy image <obraz>
 
 ## Pliki źródłowe znajdują się na publiczne repozytorium
 
-![Publiczne repozytorium](./zdjecia/private_repo.png)
+![Publiczne repozytorium](./zdjecia/public_repo.png)
 
 ## Dockerfile
 
